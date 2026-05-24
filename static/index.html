@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOICE-AI Backoffice Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 40px; background: #f5f7fb; color: #333; }
+        .container { max-width: 800px; margin: auto; background: #fff; border-radius: 14px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); padding: 32px; }
+        h1 { margin-top: 0; color: #1a202c; }
+        p { line-height: 1.7; }
+        pre { background: #f0f4ff; padding: 16px; border-radius: 10px; overflow-x: auto; }
+        .badge { display: inline-block; margin: 4px 4px 0 0; padding: 6px 10px; border-radius: 999px; background: #e2e8f0; color: #1a202c; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VOICE-AI Backoffice Dashboard</h1>
+        <p>The web dashboard server is running correctly at <strong>http://localhost:8080</strong>.</p>
+        <p>Use the API endpoints below to interact with the backoffice services:</p>
+        <div class="badge">GET /api/clients</div>
+        <div class="badge">GET /api/database-status</div>
+        <div class="badge">GET /api/behavioral-analytics</div>
+        <div class="badge">GET /api/order-logs</div>
+        <div class="badge">POST /api/sql-query</div>
+        <div class="badge">POST /api/sql-config</div>
+        <div class="badge">POST /api/voice-ai/start</div>
+        <div class="badge">POST /api/voice-ai/turn</div>
+        <p>If you want to build a richer dashboard, add HTML, CSS, and JavaScript files into the <code>static/</code> folder.</p>
+    </div>
+</body>
+</html>
