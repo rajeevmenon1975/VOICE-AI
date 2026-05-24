@@ -24,7 +24,7 @@ def get_ledger_balance(client_id: str) -> dict:
             "phone": client["phone"],
             "ledger_balance": client["ledger_balance"],
             "available_margin": client["ledger_balance"],
-            "activated_segments": client["activated_segments"]
+            "activated_segments": database.parse_activated_segments(client["activated_segments"])
         }
     }
 

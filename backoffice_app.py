@@ -79,13 +79,18 @@ class BackofficeHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
     def handle_api_get(self, path, query):
         if path == "/api/clients":
-            # Fetches client ledgers
+            # Fetches client ledgers and normalizes segment activation lists
             clients = [
                 database.get_client("CLIENT_123"),
                 database.get_client("CLIENT_456"),
                 database.get_client("CLIENT_789")
             ]
-            self.send_json_response(200, {"status": "success", "data": clients})
+            normalized_clients = []
+            for client in clients:
+                if client:
+                    client["activated_segments"] = database.parse_activated_segments(client.get("activated_segments"))
+                    normalized_clients.append(client)
+            self.send_json_response(200, {"status": "success", "data": normalized_clients})
 
         elif path == "/api/database-status":
             status = mssql_integration.get_connection_status()

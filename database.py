@@ -154,5 +154,14 @@ def get_order_logs(client_id=None):
     conn.close()
     return [dict(r) for r in rows]
 
+
+def parse_activated_segments(raw_value):
+    if raw_value is None:
+        return []
+    if isinstance(raw_value, (list, tuple)):
+        return [str(s).strip().upper() for s in raw_value if str(s).strip()]
+    return [s.strip().upper() for s in str(raw_value).split(",") if s.strip()]
+
+
 # Auto-initialize database on import
 init_db()
