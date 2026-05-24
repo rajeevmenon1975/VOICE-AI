@@ -1,0 +1,4 @@
+# External package dependencies for MS SQL & Local Speech processing
+pyodbc>=5.0.0
+gTTS>=2.5.0
+SpeechRecognition>=3.10.0
